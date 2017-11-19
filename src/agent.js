@@ -30,7 +30,7 @@ const User = {
 
 const Place = {
   board: () => axiosInstance.get('/api/place'),
-  pixelDetail: (x, y) => axiosInstance.get(`/api/placepixel?x=${x}&y=${y}`),
+  pixelDetail: (x, y) => axiosInstance.get(`/api/place/pixel?x=${x}&y=${y}`),
   draw: body => axiosInstance.post('/api/place/draw', body)
 }
 
