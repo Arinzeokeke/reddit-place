@@ -1,8 +1,6 @@
 import axios from 'axios'
 import { baseUrl as API_ROOT } from './config'
 
-const encode = encodeURIComponent
-
 axios.defaults.baseURL = API_ROOT
 
 let axiosInstance = axios.create({
