@@ -1,4 +1,2 @@
-export default {
-  baseUrl: 'http://localhost:5000/',
-  baseApiUrl: 'http://localhost:5000/api/'
-}
+export const baseUrl = 'http://localhost:8000/'
+export const baseApiUrl = 'http://localhost:8000/api/'

@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import { Layer, Stage, Image } from 'react-konva'
+import { Place } from '../agent'
 
 class Canvas extends Component {
   state = {
     image: null
   }
-  componentDidMount() {
+  async componentDidMount() {
+    const board = await Place.board()
+    //console.log(board)
     const image = new window.Image()
-    image.src = 'http://konvajs.github.io/assets/yoda.jpg'
+    const url = URL.createObjectURL(board)
+    image.src = url
     image.onload = () => {
       this.setState({
         image: image
@@ -16,6 +20,20 @@ class Canvas extends Component {
   }
 
   render() {
-    return <Image image={this.state.image} />
+    return (
+      <div>
+        {this.state.image ? (
+          <Stage width={1000} height={1000}>
+            <Layer>
+              <Image image={this.state.image} />
+            </Layer>
+          </Stage>
+        ) : (
+          <div>Loading...</div>
+        )}
+      </div>
+    )
   }
 }
+
+export default Canvas
